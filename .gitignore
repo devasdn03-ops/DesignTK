@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+nicegui_app.log
+env/
+.vscode/
+.DS_Store
