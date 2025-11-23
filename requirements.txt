@@ -1,3 +1,4 @@
 nicegui==2.*
-plotly
+"plotly[express]"
+numpy
 uvicorn
