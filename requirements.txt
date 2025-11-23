@@ -1,4 +1,7 @@
 nicegui==2.*
 plotly
 numpy
+pandas
 uvicorn
+fastapi
+python-dotenv
