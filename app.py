@@ -51,14 +51,3 @@ ui.run(
     storage_secret='pick_your_private_secret'  # Add this for production
 )
 ```
-
-**Procfile** (create this file):
-```
-web: python app.py
-```
-
-**requirements.txt**:
-```
-nicegui>=2.0.0
-plotly
-pandas
