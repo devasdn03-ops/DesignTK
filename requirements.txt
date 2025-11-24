@@ -1,7 +1,9 @@
-nicegui==2.*
+nicegui>=2.00
 plotly
 numpy
 pandas
 uvicorn
 fastapi
 python-dotenv
+
+
