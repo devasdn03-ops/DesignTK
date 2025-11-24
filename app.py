@@ -5,7 +5,7 @@ import plotly.express as px
 
 # Read port from environment (Render sets PORT). Default to 8080 for local runs.
 PORT = int(os.environ.get('PORT', 8080))
-HOST = '0.0.0.0'     # Bind to all interfaces so the platform can route traffic
+HOST = '0.0.0.0'
 
 df = px.data.iris()
 
@@ -43,7 +43,16 @@ fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species', height=
 fig.update_layout(margin=dict(l=10, r=10, t=30, b=10))
 plot = ui.plotly(fig).classes('w-full h-[540px]')
 
-if __name__ == '__main__':
-    # Start the NiceGUI server on the environment port
-    print(f"Starting NiceGUI on {HOST}:{PORT}")
-    ui.run(host=HOST, port=PORT, title='NiceGUI Demo')
+# Call ui.run() directly - NO nme guard needed here
+ui.run(
+    host=HOST, 
+    port=PORT, 
+    title='NiceGUI Demo',
+    reload=False,
+    show=False
+)
+```
+
+#Update profile
+```
+web: python app.py
