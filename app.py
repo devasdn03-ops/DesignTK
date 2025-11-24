@@ -1,11 +1,9 @@
-# app.py
 import os
 from nicegui import ui
 import plotly.express as px
 
-# Read port from environment (Render sets PORT). Default to 8080 for local runs.
+# Read port from environment
 PORT = int(os.environ.get('PORT', 8080))
-HOST = '0.0.0.0'
 
 df = px.data.iris()
 
@@ -43,16 +41,24 @@ fig = px.scatter(df, x='sepal_width', y='sepal_length', color='species', height=
 fig.update_layout(margin=dict(l=10, r=10, t=30, b=10))
 plot = ui.plotly(fig).classes('w-full h-[540px]')
 
-# Call ui.run() directly - NO nme guard needed here
+# Start server - this must be at module level, no guards
 ui.run(
-    host=HOST, 
-    port=PORT, 
+    host='0.0.0.0',
+    port=PORT,
     title='NiceGUI Demo',
     reload=False,
-    show=False
+    show=False,
+    storage_secret='pick_your_private_secret'  # Add this for production
 )
 ```
 
-#Update profile
+**Procfile** (create this file):
 ```
 web: python app.py
+```
+
+**requirements.txt**:
+```
+nicegui>=2.0.0
+plotly
+pandas
